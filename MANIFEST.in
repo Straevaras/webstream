@@ -1,0 +1,4 @@
+graft webstream/templates
+graft webstream/static
+graft webstream/blueprints
+include webstream/schema.sql
