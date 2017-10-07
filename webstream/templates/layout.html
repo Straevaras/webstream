@@ -1,9 +1,10 @@
 <!doctype html>
+<html>
+<head>
 <title></title>
-
-<link rel='stylesheet' type='text/css' href='./css/{{ layout }}.css' />
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='{}.css'.format(layout)) }}">
 </head>
-{% block body %}
+<body>
 <div id="streamlayout">
 
 <div id="leftpane" class="chroma"></div>
@@ -12,4 +13,5 @@
 
 
 </div>
-{% endblock %}
+</body>
+</html>

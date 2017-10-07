@@ -2,7 +2,7 @@
 import os
 from flask import Flask, g
 from werkzeug.utils import find_modules, import_string
-from streamweb.blueprints.streamweb import init_db
+from webstream.blueprints.webstream import init_db
 	 
 app = Flask(__name__) # create the application instance :)
 app.config.from_object(__name__) # load config from this file , flaskr.py
@@ -10,7 +10,7 @@ app.config.from_object(__name__) # load config from this file , flaskr.py
 def create_app(config=None):
 	# Load default config and override config from an environment variable
 	app.config.update(dict(
-		DATABASE=os.path.join(app.root_path, 'flaskr.db'),
+		DATABASE=os.path.join(app.root_path, 'webstream.db'),
 		SECRET_KEY='development key',
 		USERNAME='admin',
 		PASSWORD='default'
@@ -28,7 +28,7 @@ def register_blueprints(app):
     """Register all blueprint modules
     Reference: Armin Ronacher, "Flask for Fun and for Profit" PyBay 2016.
     """
-    for name in find_modules('streamweb.blueprints'):
+    for name in find_modules('webstream.blueprints'):
         mod = import_string(name)
         if hasattr(mod, 'bp'):
             app.register_blueprint(mod.bp)
